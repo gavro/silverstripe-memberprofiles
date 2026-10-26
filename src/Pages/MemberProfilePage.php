@@ -95,11 +95,15 @@ class MemberProfilePage extends Page
         'ConfirmationContent' => 'HTMLText',
     ];
 
-    // Disable scaffolding for all fields except the page title - fixes duplicate fields error
+    // Disable scaffolding for all fields except the page title, navigation label and URL
+    // segment - fixes duplicate fields error. SiteTree::getCMSFields() only replaces the
+    // scaffolded URLSegment field, so without it the page URL cannot be edited.
     private static array $scaffold_cms_fields_settings = [
         'includeRelations' => false,
         'restrictFields' => [
-            'Title'
+            'Title',
+            'MenuTitle',
+            'URLSegment',
         ],
     ];
 
