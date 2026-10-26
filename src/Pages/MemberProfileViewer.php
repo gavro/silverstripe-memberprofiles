@@ -132,7 +132,7 @@ class MemberProfileViewer extends PageController
     {
         $id = $request->param('MemberID');
 
-        if (!ctype_digit($id)) {
+        if (!ctype_digit((string) $id)) {
             $this->httpError(404);
         }
 

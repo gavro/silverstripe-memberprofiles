@@ -24,7 +24,6 @@ use SilverStripe\Core\Validation\ValidationException;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\SpamProtection\Extension\FormSpamProtectionExtension;
-use SilverStripe\View\Requirements;
 use SilverStripe\Security\Permission;
 use SilverStripe\View\ViewableData_Customised;
 use Symbiote\MemberProfiles\Email\MemberConfirmationEmail;
@@ -707,11 +706,6 @@ class MemberProfilePageController extends PageController
 
             if ($visibility === 'Readonly') {
                 $field = $field->performReadonlyTransformation();
-            }
-
-            if ($name === 'Password') {
-                Requirements::javascript('https://code.jquery.com/jquery-3.7.1.min.js');
-                Requirements::javascript('webbuilders-group/silverstripe-memberprofiles: client/javascript/ConfirmedPasswordField.js');
             }
 
             // The follow two if-conditions were added since the SS4 migration because a Password label disappeared
